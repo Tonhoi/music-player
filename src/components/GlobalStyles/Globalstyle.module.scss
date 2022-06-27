@@ -1,0 +1,48 @@
+@import 'normalize.css';
+:root {
+    --black-color: #000;
+    --white-color: #fff;
+    --primary-color: #16191E;
+    --purple-primary: #7200a1;
+    --search-text: #eee;
+    --primary-bg: #432275;
+    --alpha-bg:#ffffff1a;
+
+    --padding-list: 7px 25px 7px 28px;
+    --width-search: 382px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'intel', sans-serif;
+}
+
+a, li, ul {
+    list-style: none;
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+@font-face {
+    font-family: inter;
+    src: url('../../assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa25L7SUc.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: inter;
+    src: url('../../assets/fonts/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2');
+    font-weight: 700;
+}
+
+

@@ -1,0 +1,33 @@
+.wrapper {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    height: auto;
+    background-color: var(--primary-bg);
+    .list {
+        padding: 13px 10px 8px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: var(--primary-bg);
+        height: 380px;
+        overflow-y: auto;
+        .title {
+            font-size: 14px;
+            font-weight: 700;
+            padding: 0 10px 8px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--white-color);
+        }
+    }
+    .result-all {
+        padding: 13px 20px;
+        user-select: none;
+        cursor: pointer;
+        color: var(--white-color);
+        &:hover {
+            background: var(--alpha-bg);
+        }
+    }
+}

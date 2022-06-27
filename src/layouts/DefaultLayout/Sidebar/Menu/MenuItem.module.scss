@@ -1,0 +1,28 @@
+.wrapper {
+    color: #DADADA;
+    width: 100%;
+    
+    &:hover {
+        color: var(--white-color);
+    }
+
+    span {
+        margin: 0 10px 0 0;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        color: currentColor;
+        font-weight: 700;
+        font-size: 1.3rem;
+        padding: var(--padding-list);
+        cursor: pointer;
+        &.active {
+            border-left: 3px solid var(--purple-primary);
+            color: white;
+            background-color: #393243;
+            padding: 7px 25px 7px 25px;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.item {
+    color: var(--white-color);
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        .img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    }
+}
+
+.leftIcon {
+    margin-right: 10px;
+    color: #ffffff80;
+}
