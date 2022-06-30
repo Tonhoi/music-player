@@ -1,6 +1,11 @@
-const rootReducer = (state, action) => {
+export const initialState = {
+    searchValue: '',
+    searchResult: [],
+    debounce: false,
+};
+const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'value':
+        case '':
             break;
 
         default:

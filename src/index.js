@@ -2,20 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
+import store from './redux/store';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './components/GlobalStyles';
-import store from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        <React.StrictMode>
-            <GlobalStyle>
-                <App />
-            </GlobalStyle>
-        </React.StrictMode>
+        {/* <React.StrictMode> */}
+        <GlobalStyle>
+            <App />
+        </GlobalStyle>
+        {/* </React.StrictMode> */}
     </Provider>,
 );
 

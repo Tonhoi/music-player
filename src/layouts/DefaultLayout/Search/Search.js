@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { searchByKeyword } from 'nhaccuatui-api-full';
 
 import styles from './Search.module.scss';
-import { DropDown } from '../../../components/Popper/DropDown';
+import { DropDown } from '../../../components/Popper/Menu';
 import { CloseIcon, SearchIcon } from '../../../components/Icons/Icon';
 import HookDropDown from '../../../hook/HookDropDown';
 import HookDeBounce from '../../../hook/HookDeBounce';
@@ -12,9 +12,9 @@ const cx = classNames.bind(styles);
 const Search = () => {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const debounce = HookDeBounce(searchValue, 600);
     const [loading, setLoading] = useState(false);
     const { active, searchRef } = HookDropDown();
+    const debounce = HookDeBounce(searchValue, 600);
     useEffect(() => {
         if (!debounce.trim()) {
             setSearchResult([]);
@@ -22,12 +22,22 @@ const Search = () => {
         }
         setLoading(true);
         const fetData = async () => {
-            const res = await searchByKeyword(debounce);
-            setSearchResult(res.search.song.song);
-            setLoading(false);
+            try {
+                const res = await searchByKeyword(debounce);
+                console.log(res);
+                setSearchResult(res.search.song.song);
+                setLoading(false);
+            } catch (error) {
+                console.log('không lấy được dữ liệu');
+                setLoading(false);
+            }
         };
         fetData();
     }, [debounce]);
+
+    const handleInput = (e) => {
+        setSearchValue(e.target.value);
+    };
 
     return (
         <div className={`${cx('wrapper')}`} ref={searchRef}>
@@ -37,7 +47,8 @@ const Search = () => {
                     type="text"
                     placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..."
                     value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleInput}
+                    autoComplete="off"
                 />
                 {!loading && searchResult.length > 0 && (
                     <div onClick={(e) => setSearchValue('')}>
@@ -47,7 +58,12 @@ const Search = () => {
                 {loading && <div className={cx('loading')}></div>}
             </div>
             {active && searchResult.length > 0 && (
-                <DropDown title="Kết quả tìm kiếm" searchResult={searchResult} searchValue={searchValue} />
+                <DropDown
+                    title="Kết quả tìm kiếm"
+                    searchResult={searchResult}
+                    debounce={debounce}
+                    searchValue={searchValue}
+                />
             )}
         </div>
     );

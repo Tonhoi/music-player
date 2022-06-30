@@ -1,12 +1,14 @@
 .wrapper {
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
 }
 
 .header {
     color: var(--white-color);
     padding: 0 32px;
-    flex:1;
-    min-height: 100vh;
+    flex: 1;
     background-color: #170F23;
 }

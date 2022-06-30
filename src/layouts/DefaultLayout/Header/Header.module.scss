@@ -38,6 +38,15 @@
     }
 }
 
+@media(max-width: 1320px) {
+
+    .wrapper {
+        .header-right {
+            flex-basis: 40%;
+            
+        }
+    }
+}
 
 
 
