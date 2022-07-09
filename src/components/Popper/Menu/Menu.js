@@ -1,38 +1,68 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classNames from 'classnames/bind';
-import { Scrollbars } from 'react-custom-scrollbars';
 
 import styles from './Menu.module.scss';
-import Wrapper from '../Wrapper';
-import SearchItem from '../../SearchItem/SearchItem';
-import { ArrowRedoIcon } from '../../Icons/Icon';
+import { CaretForward } from '../../Icons/Icon';
+import Image from '../../Images/Image';
+import { Button } from '../../Button';
 
 const cx = classNames.bind(styles);
-const Menu = ({ title, searchResult, debounce, searchValue }) => {
+const Menu = ({
+    title,
+    nameArtist,
+    leftIcon,
+    rightIcon,
+    optionIcon,
+    src,
+    time,
+    itemRight,
+    debounce,
+    className,
+    image,
+    ...props
+}) => {
+    let classes;
+    props.navLink && !props.to
+        ? console.log('Bạn thiếu attribute to')
+        : props.navLink && props.to
+        ? (classes = (nav) =>
+              cx(
+                  'item',
+                  { active: nav.isActive },
+                  {
+                      [className]: className,
+                  },
+              ))
+        : (classes = cx('item', {
+              [className]: className,
+          }));
     return (
-        <Wrapper>
-            <div className={cx('wrapper')}>
-                {title && <span className={cx('title')}>{title}</span>}
-                <Scrollbars style={{ height: 290 }} autoHide>
-                    <ul className={cx('list')}>
-                        {searchResult.map((searchResult) => {
-                            return (
-                                <SearchItem
-                                    key={searchResult.key}
-                                    item={searchResult}
-                                    leftIcon={<ArrowRedoIcon />}
-                                    debounce={debounce}
-                                />
-                            );
-                        })}
-                    </ul>
-                </Scrollbars>
-                {searchResult.length > 0 && (
-                    <div className={cx('result-all')}>Xem tất cả các kết quả của từ khóa "{searchValue}"</div>
+        <Button className={classes} {...props}>
+            {leftIcon && <span className={cx('leftIcon')}>{leftIcon}</span>}
+            <span className={cx('title')}>
+                {image && (
+                    <div className={cx('wrapper-image')}>
+                        <div className={cx('overlay')}></div>
+                        <Image src={src} alt="" className={cx('img')} debounce={debounce} />
+                        <CaretForward className={cx('icon-img')} />
+                    </div>
                 )}
-            </div>
-        </Wrapper>
+                <div className={cx('info')}>
+                    <span className={cx('name-music')}>{title}</span>
+                    {nameArtist && <span className={cx('name-artist')}>{nameArtist}</span>}
+                </div>
+            </span>
+            {itemRight && optionIcon ? (
+                <div className={itemRight}>
+                    <span className={cx('optionIcon')}>{optionIcon}</span>
+                    <span className={cx('time')}>{time}</span>
+                </div>
+            ) : (
+                <span>{time}</span>
+            )}
+            {rightIcon && <span className={cx('rightIcon')}>{rightIcon}</span>}
+        </Button>
     );
 };
 
-export default Menu;
+export default memo(Menu);

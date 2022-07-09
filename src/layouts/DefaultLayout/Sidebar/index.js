@@ -17,6 +17,7 @@ import {
 } from '../../../components/Icons/Icon';
 import { MenuItem } from './Menu';
 import { router } from '../../../config';
+import { Menu } from '../../../components/Popper/Menu';
 
 const cx = classNames.bind(styles);
 
@@ -28,6 +29,7 @@ const Sidebar = () => {
             </Link>
             <div className={cx('list')}>
                 <MenuItem title="Trang Chủ" icon={<HomeIcon />} to="/" />
+                {/* <Menu title="Trang chủ" leftIcon={<HomeIcon />} to="/" navLink className={cx('text')} /> */}
                 <MenuItem title="Khám phá" icon={<DiscIcon />} to="/Discovery" />
                 <MenuItem title="Nhạc Mới" icon={<MusicIcon />} to="/moi-phat-hanh" />
                 <MenuItem title="Thể Loại" icon={<TopicIcon />} to="/hub" />

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { searchByKeyword } from 'nhaccuatui-api-full';
 
 import styles from './Search.module.scss';
-import { DropDown } from '../../../components/Popper/Menu';
 import { CloseIcon, SearchIcon } from '../../../components/Icons/Icon';
 import HookDropDown from '../../../hook/HookDropDown';
 import HookDeBounce from '../../../hook/HookDeBounce';
+import { SearchMenu } from './SearchMenu';
 
 const cx = classNames.bind(styles);
 const Search = () => {
@@ -15,6 +15,7 @@ const Search = () => {
     const [loading, setLoading] = useState(false);
     const { active, searchRef } = HookDropDown();
     const debounce = HookDeBounce(searchValue, 600);
+
     useEffect(() => {
         if (!debounce.trim()) {
             setSearchResult([]);
@@ -24,8 +25,9 @@ const Search = () => {
         const fetData = async () => {
             try {
                 const res = await searchByKeyword(debounce);
-                console.log(res);
-                setSearchResult(res.search.song.song);
+
+                const data = res.search.song.song.length <= 0 ? res.search.playlist.playlist : res.search.song.song;
+                setSearchResult(data);
                 setLoading(false);
             } catch (error) {
                 console.log('không lấy được dữ liệu');
@@ -58,7 +60,7 @@ const Search = () => {
                 {loading && <div className={cx('loading')}></div>}
             </div>
             {active && searchResult.length > 0 && (
-                <DropDown
+                <SearchMenu
                     title="Kết quả tìm kiếm"
                     searchResult={searchResult}
                     debounce={debounce}
@@ -69,4 +71,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default memo(Search);

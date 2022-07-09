@@ -1,0 +1,18 @@
+
+.swiper-slide {
+    width: 33.33333% !important;
+    height: 250px !important;
+    border-radius: 4px;
+    object-fit: cover;
+    padding: 12px 0;
+}
+
+@media(max-width:900px)
+{
+    .swiper-slide {
+        width: 50% !important;
+        height: 260px !important;
+
+    }
+}
+

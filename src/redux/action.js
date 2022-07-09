@@ -1,6 +1,19 @@
-export const handleDebounce = (payload) => {
+export const getAudio = (payload) => {
     return {
-        type: 'getValueDebounce',
-        payload: payload,
+        type: 'getAudio',
+        payload,
+    };
+};
+
+export const setData = (payload) => {
+    return {
+        type: 'setData',
+        payload,
+    };
+};
+export const setGetInfoMusic = (payload) => {
+    return {
+        type: 'setGetInfoMusic',
+        payload,
     };
 };

@@ -1,34 +1,108 @@
-.wrapper {
-    position: absolute;
-    width: 100%;
-    top: 100%;
-    left: 0;
-    height: auto;
-    background-color: var(--primary-bg);
-    .list {
-        padding: 8px 10px 8px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        background-color: var(--primary-bg);
-        // height: 290px;
-        overflow: hidden;
+.item {
+    color: var(--white-color);
+    // padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    user-select: none;
+    
+    &:hover .title .wrapper-image .overlay,
+    &:hover .title .wrapper-image .icon-img {
+        display: block;
+    }
+
+
+    &:hover {
+        background-color: var(--alpha-bg);
     }
     .title {
-        font-size: 14px;
-        font-weight: 700;
-        padding: 0 10px 8px;
         display: flex;
-        justify-content: space-between;
-        color: var(--white-color);
-    }
-    .result-all {
-        font-size: 1.4rem;
-        padding: 13px 20px;
-        user-select: none;
-        cursor: pointer;
-        color: var(--white-color);
-        &:hover {
-            background: var(--alpha-bg);
+        align-items: center;
+        .wrapper-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+
+            &:hover .icon-img {
+                opacity: .8;
+            }
+            .img {
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+            }
+            .overlay {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: rgba(0, 0, 0, .6);
+                border-radius: 50%;
+                display: none;
+            }
+
+            .icon-img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: var(--white-color);
+                display: none;
+                
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 0 8px 0 0;
+            .name-music {
+                display:-webkit-box;
+                -webkit-line-clamp:1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-word;
+                line-height: 20px;
+                font-size: 1.4rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-word;
+                &:hover {
+                    color: var(--link-text-hover);
+                    cursor: pointer;
+                }
+            }
+
+            .name-artist {
+                font-size: 1.2rem;
+                color: #ffffff80;
+            }
         }
     }
+    .optionIcon {
+        position: relative;
+        display: none;
+        &:hover {
+            opacity: 0.6
+        }
+    }
+    &:hover .optionIcon {
+        display: block;
+    }
+    &:hover .time {
+        display: none;
+    }
+}
+
+
+
+.leftIcon {
+    margin-right: 10px;
+    color: currentColor;
 }
