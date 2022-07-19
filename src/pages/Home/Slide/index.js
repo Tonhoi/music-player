@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Autoplay, Navigation } from 'swiper';
+import { EffectCoverflow, Autoplay } from 'swiper';
 
 import './Slide.scss';
 import 'swiper/css';
@@ -26,7 +26,8 @@ const Slide = ({ data }) => {
                 }}
                 modules={[EffectCoverflow, Autoplay]}
             >
-                {data.length > 0 &&
+                {data &&
+                    data.length > 0 &&
                     data.map((data, index) => {
                         return (
                             <SwiperSlide key={index}>

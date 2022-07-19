@@ -5,9 +5,15 @@ export const getAudio = (payload) => {
     };
 };
 
-export const setData = (payload) => {
+export const setTopSong = (payload) => {
     return {
-        type: 'setData',
+        type: 'setTopSong',
+        payload,
+    };
+};
+export const setSearchMusic = (payload) => {
+    return {
+        type: 'setSearchMusicc',
         payload,
     };
 };

@@ -1,4 +1,5 @@
 import {
+    SET_CURRENT_INDEX,
     SET_DURATION_MUSIC,
     SET_NEXT_MUSIC,
     SET_PLAYING_MUSIC,
@@ -7,6 +8,8 @@ import {
     SET_THUMBNAIL,
     SET_TIME_PLAYED,
     SET_VOLUME_MUSIC,
+    SET_SEEK_CHANGE,
+    SET_MORE_LIST,
 } from './constants';
 
 export const setPlayingMusic = (payload) => {
@@ -61,6 +64,25 @@ export const setNextMusic = (payload) => {
 export const setTimePlayed = (payload) => {
     return {
         type: SET_TIME_PLAYED,
+        payload,
+    };
+};
+export const setCurrentIndex = (payload) => {
+    return {
+        type: SET_CURRENT_INDEX,
+        payload,
+    };
+};
+
+export const setSeekChange = (payload) => {
+    return {
+        type: SET_SEEK_CHANGE,
+        payload,
+    };
+};
+export const setMoreList = (payload) => {
+    return {
+        type: SET_MORE_LIST,
         payload,
     };
 };

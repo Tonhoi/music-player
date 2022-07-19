@@ -1,4 +1,5 @@
 import {
+    SET_CURRENT_INDEX,
     SET_DURATION_MUSIC,
     SET_NEXT_MUSIC,
     SET_PLAYING_MUSIC,
@@ -7,6 +8,8 @@ import {
     SET_THUMBNAIL,
     SET_TIME_PLAYED,
     SET_VOLUME_MUSIC,
+    SET_SEEK_CHANGE,
+    SET_MORE_LIST,
 } from './constants';
 
 export const initialState = {
@@ -18,9 +21,9 @@ export const initialState = {
     durationSong: 0,
     nextMusic: [],
     timePlayed: [],
-    // data: [],
-    // audio: '',
-    // getInfoMusic: [],
+    currentIndex: 0,
+    seekChange: 0,
+    moreList: false,
 };
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -63,6 +66,21 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 timePlayed: action.payload,
+            };
+        case SET_CURRENT_INDEX:
+            return {
+                ...state,
+                currentIndex: action.payload,
+            };
+        case SET_SEEK_CHANGE:
+            return {
+                ...state,
+                seekChange: action.payload,
+            };
+        case SET_MORE_LIST:
+            return {
+                ...state,
+                moreList: action.payload,
             };
 
         default:

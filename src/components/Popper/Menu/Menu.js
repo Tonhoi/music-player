@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 
 import styles from './Menu.module.scss';
 import { CaretForward } from '../../Icons/Icon';
-import Image from '../../Images/Image';
+import { Image } from '../../Images';
 import { Button } from '../../Button';
 
 const cx = classNames.bind(styles);

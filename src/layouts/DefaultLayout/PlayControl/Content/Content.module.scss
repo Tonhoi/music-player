@@ -1,0 +1,99 @@
+.content-playControl-pc {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 80%;
+    color: var(--white-color);
+    margin: 32px 0 0;
+    transition: margin linear 0.3s;
+    &.add {
+        margin: -162px 0 0;
+        flex-basis: 100%;
+    }
+    .title {
+        top: 322px;
+        position: fixed;
+        right: 0;
+        z-index: 10;
+        background-color: #120c1c;
+        width: 320px;
+        padding: 15px 0;
+        color: var(--white-color);
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: top linear 0.3s;
+        &.add {
+            top: 72px;
+        }
+    }
+    .list {
+        padding: 0 12px 0;
+        overflow-y: overlay;
+        z-index: 2;
+        margin-top: 72px;
+        transition: margin-top linear 0.3s;
+        position: relative;
+        &.add {
+            margin-top: 0;
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .item {
+            margin: 0 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white-color);
+
+            .item-left {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-word;
+            }
+            span:first-child {
+                margin: 0 0 6px;
+                font-size: 1.4rem;
+            }
+
+            span:last-child {
+                cursor: pointer;
+                color: #ada9a9;
+                &:hover {
+                    color: var(--link-text-hover);
+                }
+            }
+
+            .item-right {
+                user-select: none;
+                cursor: pointer;
+                span:first-child {
+                    display: none;
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover .list .item .item-right span:first-child {
+        display: block;
+    }
+    &:hover .list .item .item-right span:last-child {
+        display: none;
+    }
+}
+
+.custom {
+    justify-content: space-between;
+    padding: 8px 10px;
+}

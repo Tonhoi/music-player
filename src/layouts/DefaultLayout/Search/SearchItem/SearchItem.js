@@ -6,10 +6,10 @@ import Wrapper from '../../../../components/Popper/Wrapper';
 import Menu from '../../../../components/Popper/Menu/Menu';
 
 const cx = classNames.bind(styles);
-const SearchItem = ({ item, title, debounce }) => {
+const SearchItem = ({ item, title, debounce, onClick }) => {
     return (
         <Wrapper>
-            <div className={cx('wrapper')}>
+            <div className={cx('wrapper')} onClick={onClick}>
                 <Menu
                     src={item?.artists[0]?.imageUrl}
                     title={item.title}

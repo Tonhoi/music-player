@@ -1,7 +1,11 @@
+import { setSearchMusic } from './action';
+
 const initialState = {
     audio: '',
-    data: [],
     getInfoMusic: [],
+    topSong: [],
+    searchMusic: [],
+    nextMusic: [],
 };
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -11,10 +15,19 @@ const rootReducer = (state = initialState, action) => {
                 audio: action.payload,
             };
 
-        case 'setData':
+        case 'setTopSong':
             return {
                 ...state,
-                data: [...state.data, action.payload],
+                topSong: [...state.topSong, action.payload],
+            };
+        case 'setSearchMusicc':
+            const result = [...state.searchMusic];
+            if (result.length > 9) {
+                result.splice(0, 10);
+            }
+            return {
+                ...state,
+                searchMusic: [...result, action.payload],
             };
         case 'setGetInfoMusic':
             return {
@@ -28,3 +41,13 @@ const rootReducer = (state = initialState, action) => {
 };
 
 export default rootReducer;
+
+export function setGetInfoMusics(todo) {
+    return function setGetInfoMusicsThunk(dispatch, getState) {
+        // const text = Object.assign({}, getState());
+        // if (text.searchMusic.length > 0) {
+        //     text.getInfoMusic = [];
+        // }
+        dispatch(setSearchMusic(todo));
+    };
+}

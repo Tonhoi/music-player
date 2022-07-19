@@ -1,6 +1,11 @@
 import './Globalstyle.module.scss';
-const index = ({ children }) => {
+import PropTypes from 'prop-types';
+const GlobalStyles = ({ children }) => {
     return children;
 };
 
-export default index;
+GlobalStyles.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+export default GlobalStyles;

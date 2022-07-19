@@ -1,7 +1,7 @@
 .wrapper-pc {
     --with-playControl: 320px;
     width: var(--with-playControl);
-    background-color: #120C1C;
+    background-color: #120c1c;
     padding: 30px 0 0;
     font-size: 1.3rem;
     position: relative;
@@ -9,337 +9,13 @@
     flex-direction: column;
     height: 100vh;
     overflow-y: auto;
-    .header-playControl-pc {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: var(--with-playControl);
-        height: 310px;
-        overflow: hidden;
-        z-index: 4;
-        background-color: #120C1C;
-        transition: all linear .3s;
-        &.add {
-            width: calc(var(--with-playControl) - 24px);
-            margin: 0 12px;
-            background-color: var(--purple-primary);
-            flex-direction: row;
-            height: 72px;
-            align-items: center;
-            border-radius: 5px;
-        }
-        .wrapper-image {
-            width: 240px;
-            height: 240px;
-            margin: 0 auto 0;
-            border-radius: 50%;  
-            overflow: hidden;
-
-            &.add {
-                margin: 0 0 0 24px;
-                width: 38px;
-                height: 38px;
-                border-radius: 50%;
-            }
-        }
-        .thumbnailRotate {
-            animation: spinner linear 10s infinite;
-        }
-        
-        @keyframes spinner {
-            from {
-                transform-origin: 50% 50%;
-                transform: rotate(0);
-            }
-            to {
-                transform-origin: 50% 50%;
-                transform: rotate(360deg);
-
-            }
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            user-select: none;
-            object-fit: cover;  
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);     
-        }
-        
-    }
-    .wrapper-name-music {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 12px 8px 12px;
-        margin: 12px 12px 0;
-        border-radius: 5px;
-        font-size: 1.4rem;
-        color: var(--white-color);
-        font-weight: 700;
-        background-color: var(--purple-primary);
-        cursor: pointer;
-
-        &.add {
-            background-color: transparent;
-            padding: 0 12px 12px 12px;
-            flex:1;
-        }
-        span:last-child {
-            font-size: 1.3rem;
-        }
-    }
-    .name-music:hover {
-        color: var(--link-text-hover);
-    }
-
-    .name-artists {
-        margin: 6px 0 0;
-        font-size: 1.3rem;
-        color: #ada9a9;
-        cursor: pointer;
-        &:hover {
-            color: var(--link-text-hover);
-        }
-    }
-
-    .content-playControl-pc {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        flex-basis: 80%;
-        color: var(--white-color);
-        margin: 32px 0 0;
-        transition: margin linear .3s;
-        &.add {
-            margin: -162px 0 0;
-            flex-basis:100%;
-        }
-        .title {
-            top: 310px;
-            position: fixed;
-            right: 0;
-            z-index: 10;
-            background-color: #120C1C;
-            width: 320px;
-            padding: 15px 0;
-            color: var(--white-color);
-            font-size: 1.6rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: top linear .3s;
-            &.add {
-                top: 72px;
-            }
-        }
-        .list {
-            padding: 0 12px 0;
-            overflow-y: overlay;
-            z-index: 2;
-            margin-top: 72px;
-            transition: margin-top linear .3s;
-            position: relative;
-            &.add {
-                margin-top: 0;
-            }
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            .item {
-                margin: 0 0 24px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                color: var(--white-color);
-                
-                .item-left {
-                    display: flex;
-                    flex-direction: column;
-                    flex: 1;
-                    display:-webkit-box;
-                    -webkit-line-clamp:1;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    word-break: break-word;
-                }
-                span:first-child {
-                    margin: 0 0 6px;
-                    font-size: 1.4rem;
-                    
-                }
-
-                span:last-child {
-                    cursor: pointer;
-                    color: #ada9a9;
-                    &:hover {
-                        color: var(--link-text-hover);
-                    }
-                }
-    
-                .item-right {
-                    user-select: none;
-                    cursor: pointer;
-                    span:first-child {
-                        display: none;
-                        &:hover {
-                            opacity: 0.6
-                        }
-                    }
-    
-                }
-            }
-        }
-        
-        
-        &:hover .list .item .item-right span:first-child {
-            display: block;
-        }
-        &:hover .list .item .item-right span:last-child {
-            display: none;
-        }
-    
-    
-    }
-
-    // footer playcontrol
-    .wrapper-control-pc {
-        position: fixed;
-        width: var(--with-playControl);
-        bottom: 0;
-        right: 0;
-        color: var(--white-color);
-        background-color: #120C1C;
-        padding: 24px 24px 0;
-        z-index: 3;
-
-        .wrapper-control-pc-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .wrapper-volume {
-                position: relative;
-                cursor: pointer;
-                &:hover .volume {
-                    display: block;
-                }
-                .volume {
-                    width: 64px;
-                    position: absolute;
-                    transform: rotate(270deg);
-                    top: -50px;
-                    left: -22px;
-                    display: none;
-                    input {
-                        cursor: pointer;
-                        width: 100%;
-                    }
-                }
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: -10px;
-                    left: 0;
-                    width: 100%;
-                    height: 12px;
-                    background: transparent;
-                }
-            }
-
-            span {
-                cursor: pointer;
-                user-select: none;
-            }
-        }
-
-        .wrapper-control-pc-content {
-            margin: 24px 0 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .wrapper-control-pc-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .icon-control {
-                padding: 10px;
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
-        }
-    }
 }
-
-
-.icon-control {
-    cursor: pointer;
-}
-.isRepeat,
-.isRandom {
-    color: #00d5ff;
-}
-
-// custom
-
-.custom {
-    justify-content: space-between;
-    padding: 8px 10px;
-}
-
-// next music
-
-.wrapper-next-music {
-    padding: 4px;
-    .next-music {
-        display: flex;
-        margin-top: 12px;
-        .wrapper-image-next-music {
-            width: 40px;
-            height: 40px;
-            border-radius: 5px;
-            overflow: hidden;
-            .img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        
-        
-        .wrapper-content-next-music {
-            display: flex;
-            flex-direction: column;
-            margin-left: 8px;
-            .title {
-                font-size: 1.4rem;
-            }
-            
-            .artists {
-                font-size: 1.2rem;
-                color: rgba(255, 255, 255, 0.5019607843);
-            }
-        }
-        
-    }
-}
-
-
-
 
 // run on tablet
 .overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, 0.05);
     display: none;
 }
 
@@ -349,18 +25,18 @@
     right: 17px;
     width: 160px;
     height: 64px;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     display: none;
     border-radius: 4px;
     .header {
         cursor: pointer;
-        
+
         .title {
             margin: 4px 0;
             text-align: center;
             font-size: 1.4rem;
-            display:-webkit-box;
-            -webkit-line-clamp:1;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -371,7 +47,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: rgba(28,30,32,0.5);
+        color: rgba(28, 30, 32, 0.5);
         .wrapper-control-icon {
             display: flex;
             align-items: center;
@@ -379,7 +55,7 @@
                 padding: 8px;
                 cursor: pointer;
                 &:hover {
-                    color: rgba(28,30,32,1);
+                    color: rgba(28, 30, 32, 1);
                 }
             }
         }
@@ -396,19 +72,16 @@ input:checked ~ .overlay {
 
 //  custum range
 
-
-
-@media (max-width: 1100px)
-{
+@media (max-width: 1100px) {
     .wrapper-pc {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 0;;
+        right: 0;
         opacity: 0;
         z-index: 10;
         transform: translateX(100%);
-        transition: all linear .3s;
+        transition: all linear 0.3s;
     }
     .wrapper-tablet {
         display: block !important;
